@@ -18,6 +18,7 @@
   <% end %>
   <p><%= @bookshow.body %></p>
   <% if @bookshow.user == current_user %>
+    <%= link_to "編集", edit_book_path(@bookshow) %>
     <%= link_to "削除", book_path(@bookshow), method: :delete %>
   <% end %>
 </div>
