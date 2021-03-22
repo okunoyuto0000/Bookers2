@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
-  
+
   def index
      @books = Book.all
      @book = Book.new
   end
-  
+
   def create
     @books = Book.all
     @book = Book.new(book_params)
@@ -15,16 +15,21 @@ class BooksController < ApplicationController
 
 
   def show
+    @book = Book.new
+    @bookshow = Book.find(params[:id])
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path
   end
-  
-  
+
+
   private
 
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
 end

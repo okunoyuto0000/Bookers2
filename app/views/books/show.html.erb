@@ -1,5 +1,4 @@
 
-
 <h1>New book</h1>
 <%= form_with model: @book, url:'/books', local:true do |f| %>
   <h4>Title</h4>
@@ -9,14 +8,17 @@
   <%= f.submit ' Create Book ' %>
 <% end %>
 
-
-<% @books.each do |book| %>
+<h1>Book detail</h1>
+<div class="book-body">
 <div>
   <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
-  <%= link_to book_path(book.id) do %>
-  <p><%= book.title %></p>
+  <p>ユーザーname</p>
+  <%= link_to book_path(@bookshow.id) do %>
+  <p><%= @bookshow.title %></p>
   <% end %>
-  <p><%= book.body %></p>
+  <p><%= @bookshow.body %></p>
+  <% if @bookshow.user == current_user %>
+    <%= link_to "削除", book_path(@bookshow), method: :delete %>
+  <% end %>
 </div>
-<% end %>
-
+</div>
