@@ -10,8 +10,12 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to books_path
+    @user = current_user
+    if @book.save
+      redirect_to books_path
+    else
+      render :index
+    end
   end
 
 
