@@ -38,7 +38,9 @@
     </header>
 
     <main>
-      <%= flash[:notice] %>
+      <div class = "success-message">
+        <%= flash[:notice] %>
+      </div>
       <%= yield %>
     </main>
 
