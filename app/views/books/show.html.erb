@@ -27,8 +27,12 @@
 <h1>Book detail</h1>
 <div class="book-body">
 <div>
-  <p>投稿ユーザー画像：<%= attachment_image_tag @bookshow.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'50x50' %></p>
-  <p>ユーザーname</p>
+  <%= link_to user_path(@bookshow.user.id) do %>
+    <p><%= attachment_image_tag @bookshow.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %></p>
+  <% end %>
+  <%= link_to user_path(@bookshow.user.id) do %>
+    <p><%=  @bookshow.user.name%></p>
+  <% end %>
   <%= link_to book_path(@bookshow.id) do %>
   　<p><%= @bookshow.title %></p>
   <% end %>
