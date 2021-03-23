@@ -4,12 +4,12 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
     <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
@@ -39,8 +39,12 @@
     <% end %>
 
     <%= flash[:notice] %>
-    
 
     <%= yield %>
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
+
   </body>
+
 </html>
